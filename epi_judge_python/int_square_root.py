@@ -2,8 +2,17 @@ from test_framework import generic_test
 
 
 def square_root(k):
-    # TODO - you fill in here.
-    return 0
+    # find largest x where x*x <= k
+
+    left, right = 0, k
+    while left <= right:
+        mid = (left + right) // 2
+        sqr = mid * mid
+        if sqr > k:
+            right = mid - 1
+        else:
+            left = mid + 1
+    return left - 1
 
 
 if __name__ == '__main__':
